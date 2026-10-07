@@ -8,10 +8,12 @@
 # uncomment community
 
 doas apk add vim ranger fastfetch librewolf bspwm sxhkd mpv rofi ufw
-echo "fastfetch" >> ~/.bashrc
+ufw enable
+rc-service ufw start
+ufw allow ssh
+rc-service tlp start
 
-# enable ufw (openrc commands)
-# doas ufw allow sshlibrew
+echo "fastfetch" >> ~/.bashrc
 
 # setup windowmanager, terminal, lock screen
 # install graphics drivers
@@ -25,8 +27,10 @@ rc-service dbus start
 # xorg
 setup-xorg-base
 # suckless packages needed
-doas apk add git make gcc g++ libx11-dev libxft-dev libxinerama-dev ncurses
+apk add git make gcc g++ libx11-dev libxft-dev libxinerama-dev ncurses
 # move dot files into .config and enable 
+exit # get out of root
+mkdir .config
 # mv ~/alpinesetup/bspwm ~/.config/
 # chmod +x ~/.config/bspwm/bspwmrc
 # mv ~/alpinesetup/sxhkd ~/.config/
@@ -36,4 +40,6 @@ doas apk add git make gcc g++ libx11-dev libxft-dev libxinerama-dev ncurses
 # cd ~/.config/suckless/slock
 # doas make clean install
 
-# xinitrc needs exec dbus-launch --exit-with-session bspwm
+# xinitrc needs 
+# sxhkd & 
+# exec dbus-launch --exit-with-session bspwm
