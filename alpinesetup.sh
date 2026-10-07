@@ -14,6 +14,18 @@ echo "fastfetch" >> ~/.bashrc
 # doas ufw allow sshlibrew
 
 # setup windowmanager, terminal, lock screen
+# install graphics drivers
+doas apk add mesa-dri-gallium mesa-va-gallium
+# setup device manager
+setup-devd udev
+# d-bus
+doas apk add dbus dbus-x11
+rc-update add dbus
+rc-service dbus start
+# xorg
+setup-xorg-base
+# suckless packages needed
+doas apk add git make gcc g++ libx11-dev libxft-dev libxinerama-dev ncurses
 # move dot files into .config and enable 
 # mv ~/alpinesetup/bspwm ~/.config/
 # chmod +x ~/.config/bspwm/bspwmrc
@@ -23,3 +35,5 @@ echo "fastfetch" >> ~/.bashrc
 # doas make clean install   ?????????????????????????? base-devel?
 # cd ~/.config/suckless/slock
 # doas make clean install
+
+# xinitrc needs exec dbus-launch --exit-with-session bspwm
