@@ -7,7 +7,7 @@
 # /etc/apk/repositories
 # uncomment community
 
-doas apk add vim ranger fastfetch librewolf bspwm sxhkd mpv rofi ufw
+doas apk add vim ranger fastfetch librewolf bspwm sxhkd mpv rofi ufw tlp
 ufw enable
 rc-service ufw start
 ufw allow ssh
@@ -28,7 +28,7 @@ rc-service dbus start
 setup-xorg-base
 # suckless packages needed
 apk add git make gcc g++ libx11-dev libxft-dev libxinerama-dev ncurses
-# move dot files into .config and enable 
+# move dot files into .config and enable
 exit # get out of root
 mkdir .config
 # mv ~/alpinesetup/bspwm ~/.config/
@@ -40,6 +40,6 @@ mkdir .config
 # cd ~/.config/suckless/slock
 # doas make clean install
 
-# xinitrc needs 
-# sxhkd & 
+# xinitrc needs
+# sxhkd &
 # exec dbus-launch --exit-with-session bspwm
