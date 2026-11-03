@@ -1,13 +1,14 @@
 #!/bin/sh
 
-# Files will need to be either cloned from git or moved onto the machine some other way (USB, scp, ...)
-# https://github.com/djsaxy/alpinesetup.git
-
 # enable repositories
 # /etc/apk/repositories
 # uncomment community
 
-doas apk add vim ranger fastfetch librewolf bspwm sxhkd mpv rofi ufw tlp
+# Files will need to be either cloned from git or moved onto the machine some other way (USB, scp, ...)
+# doas apk add git
+# git clone https://github.com/djsaxy/alpinesetup.git
+
+doas apk add vim lf fastfetch librewolf bspwm sxhkd mpv rofi ufw tlp
 ufw enable
 rc-service ufw start
 ufw allow ssh
